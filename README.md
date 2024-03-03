@@ -31,15 +31,6 @@ Loose Coupling:
 
 ![Loose Coupling](https://github.com/ahmedelazab1220/SpringBootIoC-DI/assets/105994948/43aa0bfd-2be6-43b0-84f3-d37d2c511287)
 
-
-There are three main types of dependency injection:
-
-- Constructor injection: This is the most common type of dependency injection. In constructor injection, the dependencies of an object are passed to its constructor.
-
-- Setter injection: In setter injection, the dependencies of an object are passed to its setters.
-
-- Field injection: In Field injection, the dependencies of an object are passed to it through an Field.
-
 Dependency injection can be used to achieve a number of benefits, including:
 
 - Loose coupling : Dependency injection makes the code more loosely coupled, which means that the code is less dependent on other parts of the code. This makes the code more flexible and easier to test.
@@ -92,7 +83,56 @@ Dependency injection can be used to achieve a number of benefits, including:
       private FortuneService fortuneService;
 
       public TennisCoach(FortuneService fortuneService) {
-         this.fortuneService = fortuneService(); // Dependency injection through constructor
+         this.fortuneService = fortuneService; <!-- Dependency injection through constructor -->
+      }
+
+      public FortuneService getFortuneService(){
+        //
+           ........
+           //
+        return fortuneService;
+      }
+   }
+
+```
+
+## What is Inversion of Control (IoC) ❓:
+
+Inversion of control (IoC) is a design pattern that shifts the responsibility of creating and managing objects from the code that uses them to a separate entity, known as the IoC container. The IoC container is responsible for instantiating, configuring, and assembling objects, as well as managing their life cycles.
+
+The Spring IoC container can be used to achieve a number of benefits, including:
+
+- Loose coupling: The Spring IoC container allows you to decouple the code that uses an object from the code that creates and manages the object. This makes the code more flexible and easier to test.
+
+- Testability: The Spring IoC container makes it easy to mock or stub out dependencies in unit tests. This makes the code more testable.
+
+- Reusability: The Spring IoC container allows you to reuse beans in different contexts. This makes the code more reusable.
+
+- Extensibility: The Spring IoC container is extensible, so you can customize it to meet your specific needs.
+
+Here are some of the ways to use the IoC container in Spring:
+
+- To instantiate objects: The IoC container can be used to instantiate objects. This is done by specifying the bean definition in the configuration file.
+
+- To configure objects: The IoC container can be used to configure objects. This is done by specifying the configuration properties for the bean in the configuration file.
+
+- To assemble objects: The IoC container can be used to assemble objects. This is done by specifying the dependencies of the bean in the configuration file.
+
+- To manage the life cycles of objects: The IoC container can be used to manage the life cycles of objects. This includes creating, destroying, and pooling objects.
+
+## How spring dependency injection works
+
+Dependency injection in the Java Spring framework works by using the Spring IoC container to instantiate, configure, and assemble objects. The Spring IoC container can be configured to inject dependencies into objects in a variety of ways, including:
+
+- Constructor injection: This is the most common type of dependency injection in Spring. In constructor injection, the dependencies of an object are passed to its constructor.
+
+``` 
+   public class TennisCoach {
+     
+      private FortuneService fortuneService;
+
+      public TennisCoach(FortuneService fortuneService) {
+         this.fortuneService = fortuneService; <!-- Dependency injection through constructor -->
       }
 
       public FortuneService getFortuneService(){
@@ -106,3 +146,98 @@ Dependency injection can be used to achieve a number of benefits, including:
 ```
 
 
+- Setter injection: In setter injection, the dependencies of an object are passed to its setters.
+
+``` 
+   public class TennisCoach {
+
+      private FortuneService fortuneService;
+
+      public FortuneService getFortuneService(){
+        //
+           ........
+           //
+        return fortuneService;
+      }
+
+      @Autowired
+      public FortuneService setFortuneService(FortuneService fortuneService){
+         this.fortuneService = fortuneService(); 
+      }
+   }
+
+```
+
+- Field injection: In field injection, the dependencies of an object are injected into its fields.
+
+``` 
+   public class TennisCoach {
+
+      @Autowired
+      private FortuneService fortuneService;
+
+      public FortuneService getFortuneService(){
+        //
+           ........
+           //
+        return fortuneService;
+      }
+   }
+
+```
+
+## Why do we use Annotation ❓
+
+- Annotations in Java, and specifically in the context of the Spring framework, serve various purposes to enhance and simplify the development of applications.
+
+## @Component
+
+- Marks a class as a Spring component, enabling automatic detection and registration as a bean in the Spring context.
+
+## @Autowired
+
+- Used for automatic dependency injection. It can be applied to fields, methods, and constructors.
+
+## @Qualifier
+
+- is used in conjunction with @Autowired to specify which bean should be injected when there are multiple beans of the same type.
+
+## @Scope 
+
+- annotation is used to specify the scope of a bean. It allows you to define the lifecycle and visibility of the bean within the Spring.
+
+## Bean scope 
+
+refers to the lifecycle and visibility of a bean within the Spring.
+
+There are several standard bean scopes provided by Spring, each serving different purposes and suitable for different scenarios. Here's an overview of the common bean scopes :
+
+- Singleton:
+
+ - Singleton scope (default scope) means that only one instance of the bean is created per Spring IoC container.
+
+- Prototype:
+
+ - Prototype scope means that a new instance of the bean is created each time it is requested.
+ - The Spring container does not manage the lifecycle of prototype beans; it's the responsibility of the caller to manage them.
+
+- Request:
+
+ - Request scope means that a new instance of the bean is created for each HTTP request in a web application.
+ - The bean instance is bound to the lifecycle of an HTTP request.
+
+- Session:
+
+ - Session scope means that a new instance of the bean is created for each HTTP session in a web application.
+
+ - The bean instance is bound to the lifecycle of an HTTP session.
+
+- WebSocket:
+
+ - WebSocket scope means that a new instance of the bean is created for each WebSocket connection.
+ - The bean instance is bound to the lifecycle of a WebSocket connection.
+
+
+## Concluion
+ - Understanding IoC, DI, and leveraging the Spring framework empowers developers to create software that is modular, maintainable, and scalable 💯.
+ - See the Project https://github.com/ahmedelazab1220/SpringBootIoC-DI and train it with yourself.
