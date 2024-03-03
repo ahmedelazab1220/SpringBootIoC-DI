@@ -8,6 +8,10 @@ Before we dive into IOC & DI, let's take a moment to have a clear understanding 
 
 # Spring-Dependency-Injection
 
+![Dependency Injection](https://github.com/ahmedelazab1220/SpringBootIoC-DI/assets/105994948/7714a154-60f5-4123-895f-a7761f4332f0)
+
+Dependency Injection is a design pattern (way) of passing the dependencies of an object to that object, rather than having the object create its own dependencies.
+
 let's have a general overall view of What is Dependecy Injection in a simple and general terms :
 
 First of all DI is a design pattern and a fundamental concept in software development, particularly in object-oriented programming.
@@ -25,9 +29,8 @@ Tight Coupling:
 Loose Coupling:
 - Definition: Loose coupling refers to reducing dependencies between components by relying on abstractions, interfaces, or dependency injection. Example: Using interfaces, abstractions, or DI containers to decouple components.
 
-![Dependency Injection](https://github.com/ahmedelazab1220/SpringBootIoC-DI/assets/105994948/7714a154-60f5-4123-895f-a7761f4332f0)
+![Loose Coupling](https://github.com/ahmedelazab1220/SpringBootIoC-DI/assets/105994948/43aa0bfd-2be6-43b0-84f3-d37d2c511287)
 
-Dependency Injection is a design pattern (way) of passing the dependencies of an object to that object, rather than having the object create its own dependencies.
 
 There are three main types of dependency injection:
 
@@ -37,4 +40,29 @@ There are three main types of dependency injection:
 
 - Field injection: In Field injection, the dependencies of an object are passed to it through an Field.
 
-![Loose Coupling](https://github.com/ahmedelazab1220/SpringBootIoC-DI/assets/105994948/43aa0bfd-2be6-43b0-84f3-d37d2c511287)
+Dependency injection can be used to achieve a number of benefits, including:
+
+- Loose coupling : Dependency injection makes the code more loosely coupled, which means that the code is less dependent on other parts of the code. This makes the code more flexible and easier to test.
+
+- Testability : Dependency injection makes the code more testable, because the dependencies of an object can be mocked or stubbed out in unit tests.
+
+- Reusability : Dependency injection makes the code more reusable, because the dependencies of an object can be injected at runtime. This means that the same object can be used in different contexts, without having to modify the code of the object.
+
+
+## Without Dependency Injection : 
+
+``` 
+   public class UserService {
+      private final UserRepository userRepository;
+
+      public UserService() {
+         this.userRepository = new UserRepository(); // Direct instantiation
+      }
+
+      public String getUserFullName(int userId) {
+         User user = userRepository.getUserById(userId);
+         return user != null ? user.getFullName() : "User not found";
+      }
+   }
+
+```
