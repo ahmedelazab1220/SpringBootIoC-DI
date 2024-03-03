@@ -51,9 +51,7 @@ Dependency injection can be used to achieve a number of benefits, including:
       }
 
       public FortuneService getFortuneService(){
-        //
-           ........
-           //
+        //  ........
         return fortuneService;
       }
    }
@@ -68,9 +66,7 @@ Dependency injection can be used to achieve a number of benefits, including:
       }
 
       public String getFortuneService(){
-        //
-           ........
-        //
+        //  ........
       }
    }
    
@@ -87,9 +83,7 @@ Dependency injection can be used to achieve a number of benefits, including:
       }
 
       public FortuneService getFortuneService(){
-        //
-           ........
-           //
+        //  ........
         return fortuneService;
       }
    }
@@ -136,9 +130,7 @@ Dependency injection in the Java Spring framework works by using the Spring IoC 
       }
 
       public FortuneService getFortuneService(){
-        //
-           ........
-           //
+        //  ........ 
         return fortuneService;
       }
    }
@@ -154,9 +146,7 @@ Dependency injection in the Java Spring framework works by using the Spring IoC 
       private FortuneService fortuneService;
 
       public FortuneService getFortuneService(){
-        //
-           ........
-           //
+        //  ........
         return fortuneService;
       }
 
@@ -177,9 +167,7 @@ Dependency injection in the Java Spring framework works by using the Spring IoC 
       private FortuneService fortuneService;
 
       public FortuneService getFortuneService(){
-        //
-           ........
-           //
+        //  ........
         return fortuneService;
       }
    }
