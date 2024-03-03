@@ -196,27 +196,27 @@ refers to the lifecycle and visibility of a bean within the Spring.
 
 There are several standard bean scopes provided by Spring, each serving different purposes and suitable for different scenarios. Here's an overview of the common bean scopes :
 
-- Singleton:
+Singleton:
 
  - Singleton scope (default scope) means that only one instance of the bean is created per Spring IoC container.
 
-- Prototype:
+Prototype:
 
  - Prototype scope means that a new instance of the bean is created each time it is requested.
  - The Spring container does not manage the lifecycle of prototype beans; it's the responsibility of the caller to manage them.
 
-- Request:
+Request:
 
  - Request scope means that a new instance of the bean is created for each HTTP request in a web application.
  - The bean instance is bound to the lifecycle of an HTTP request.
 
-- Session:
+Session:
 
  - Session scope means that a new instance of the bean is created for each HTTP session in a web application.
 
  - The bean instance is bound to the lifecycle of an HTTP session.
 
-- WebSocket:
+WebSocket:
 
  - WebSocket scope means that a new instance of the bean is created for each WebSocket connection.
  - The bean instance is bound to the lifecycle of a WebSocket connection.
