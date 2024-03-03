@@ -52,17 +52,57 @@ Dependency injection can be used to achieve a number of benefits, including:
 ## Without Dependency Injection : 
 
 ``` 
-   public class UserService {
-      private final UserRepository userRepository;
+   public class TennisCoach {
+      private FortuneService fortuneService;
 
-      public UserService() {
-         this.userRepository = new UserRepository(); // Direct instantiation
+      public TennisCoach() {
+         this.fortuneService = new FortuneService(); // Direct instantiation
       }
 
-      public String getUserFullName(int userId) {
-         User user = userRepository.getUserById(userId);
-         return user != null ? user.getFullName() : "User not found";
+      public FortuneService getFortuneService(){
+        //
+           ........
+           //
+        return fortuneService;
       }
    }
 
 ```
+
+``` 
+   public class FortuneService {
+
+      public FortuneService() {
+
+      }
+
+      public String getFortuneService(){
+        //
+           ........
+        //
+      }
+   }
+   
+```
+
+## With Dependency Injection :
+
+``` 
+   public class TennisCoach {
+      private FortuneService fortuneService;
+
+      public TennisCoach(FortuneService fortuneService) {
+         this.fortuneService = fortuneService(); // Dependency injection through constructor
+      }
+
+      public FortuneService getFortuneService(){
+        //
+           ........
+           //
+        return fortuneService;
+      }
+   }
+
+```
+
+
