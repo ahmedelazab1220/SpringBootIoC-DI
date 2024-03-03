@@ -64,10 +64,6 @@ Dependency injection can be used to achieve a number of benefits, including:
       public FortuneService() {
 
       }
-
-      public String getFortuneService(){
-        //  ........
-      }
    }
    
 ```
